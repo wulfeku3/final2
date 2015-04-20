@@ -5,7 +5,7 @@ class FnafsController < ApplicationController
   # GET /fnafs
   # GET /fnafs.json
   def index
-    @fnafs = Fnaf.all
+    @fnafs = Fnaf.all.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /fnafs/1

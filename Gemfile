@@ -50,6 +50,16 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
+gem 'better_errors'
+
+#gem 'puma'
+
+gem 'slim'
+
+gem 'simple_form', '~> 3.1.0'
+
+gem 'will_paginate', '~> 3.0.6'
+
 # gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 
 # Use unicorn as the app server

@@ -14,15 +14,16 @@
 
   <hr>
 
-  <table>
+<%= will_paginate @products %>
+  <table style="width:800px">
     <thead>
       <tr>
         <th>Name</th>
         <th>Picture</th>
         <th>Species</th>
-        <th>Gender |</th>
-        <th>First Game |</th>
-        <th>Second Game |</th>
+        <th>Gender</th>
+        <th>First Game</th>
+        <th>Second Game</th>
         <th>Third Game</th>
         <th></th>
         <th></th>
@@ -43,12 +44,20 @@
         <td><%= link_to 'Show', fnaf %></td>
         <% if user_signed_in? %>
         <td><%= link_to 'Edit', edit_fnaf_path(fnaf) %></td>
-        <td><%= link_to 'Destroy', fnaf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', fnaf, method: :delete, data: { confirm: 'Are you sure you want to destroy this monstrosity once and for all?' } %></td>
         <% end %>
       </tr>
       <% end %>
     </tbody>
   </table>
+  <%= will_paginate @fnafs %>
+
+  <%= form_tag fnafs_path do %>
+    <p>
+      <%= text_field_tag :search %>
+      <%= submit_tag "Search" %>
+    </p>
+  <% end %>
 
   <hr>
 
