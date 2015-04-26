@@ -6,11 +6,17 @@ class FnafsController < ApplicationController
   # GET /fnafs.json
   def index
     @fnafs = Fnaf.all.paginate(page: params[:page], per_page: 5)
+    # if params[:search]
+      # @fnafs = Fnaf.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+    # else
+      # @fnafs = Fnaf.find(:all)
+    # end
   end
 
   # GET /fnafs/1
   # GET /fnafs/1.json
   def show
+    # @fnaf = Fnaf.find(params[:id])
   end
 
   # GET /fnafs/new
@@ -70,6 +76,6 @@ class FnafsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fnaf_params
-      params.require(:fnaf).permit(:name, :picture, :species, :gender, :first_game, :second_game, :third_game)
+      params.require(:fnaf).permit(:name, :picture, :species, :gender, :first_game, :second_game, :third_game, :search)
     end
 end

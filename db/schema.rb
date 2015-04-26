@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150330201547) do
 
-  create_table "fnafs", force: true do |t|
+  create_table "fnafs", force: :cascade do |t|
     t.text     "name"
     t.binary   "picture"
     t.text     "species"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20150330201547) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "password_digest"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",           limit: 255
+    t.string   "password_digest", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

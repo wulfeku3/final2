@@ -14,7 +14,7 @@
 
   <hr>
 
-<%= will_paginate @products %>
+  <%= will_paginate @fnafs %>
   <table style="width:800px">
     <thead>
       <tr>
@@ -50,14 +50,15 @@
       <% end %>
     </tbody>
   </table>
+
   <%= will_paginate @fnafs %>
 
-  <%= form_tag fnafs_path do %>
-    <p>
-      <%= text_field_tag :search %>
-      <%= submit_tag "Search" %>
-    </p>
-  <% end %>
+    <!-- <%= form_tag fnafs_path, :method => 'get' do %> -->
+    <!-- <p> -->
+      <!-- <%= text_field_tag :search, params[:search] %> -->
+      <!-- <%= submit_tag "Search", :name => nil %> -->
+    <!-- </p> -->
+  <!-- <% end %> -->
 
   <hr>
 
