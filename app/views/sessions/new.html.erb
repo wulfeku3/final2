@@ -1,18 +1,3 @@
-<center>
-
-  <h1>Sign Up!</h1>
-
-  <%= form_for :user, url: '/users' do |f| %>
-
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
-
-  <% end %>
-
-  <hr>
-
   <h1>Already have an account? Log In!</h1>
   <%= form_tag sessions_path do %>
   <div class="field">

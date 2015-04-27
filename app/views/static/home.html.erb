@@ -1,11 +1,73 @@
+<head>
+  <!--<script type="text/javascript" src="http://coffeescript.org/extras/coffee-script.js">
+  </script>-->
+  <style>
+  .chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+  </style>
+</head>
+
+<body>
 <center>
-<h1>Welcome to my FNaF Directory</h1>
+  <h1>Welcome to my FNaF Directory</h1>
 
-<p>The purpose of this project is to give you a bit of knowledge about the popular game series titled "Five Nights at Freddy's". Click the 'about' link below for some general info, or click 'character directory' to meet the spooky cast.</p>
+  <p>The purpose of this project is to give you a bit of knowledge about the popular game series titled "Five Nights at Freddy's". Click the 'about' link below for some general info, or click 'character directory' to meet the spooky cast.</p>
 
-<p>
-<%= link_to 'Home', root_path %> |
-<%= link_to 'About', about_path %> |
-<%= link_to 'Character Directory', fnafs_path %>
-</p>
+  <p>
+    <%= link_to 'Home', root_path %> |
+    <%= link_to 'About', about_path %> |
+    <%= link_to 'Character Directory', fnafs_path %>
+  </p>
+
 </center>
+  <hr>
+
+  <!-- <p id="para1"></p> -->
+  <!-- <button onclick="myAlertFunction">Click here for a random quote!</button> -->
+
+<!-- // <script type="text/coffeescript">
+    msg = ["Hello", "World"]
+      for i in [0...msg.length]
+         alert msg[i]
+   </script> -->
+
+   <div class="chart">
+     <script src="http://d3js.org/d3.v3.min.js"  charset="utf-8">
+     </script>
+     <script>
+
+// var game1count = 5;
+// var game2count = 2;
+// var game3count = 1;
+
+// for (character array) 
+// { if fnaf.first_game == true {game1count += 1};
+  // if character.game2 is true then game2count += 1;
+  // if character.game3 is true then game3count += 1 }
+// }
+
+var data = [4, 8, 15, 16, 23, 42];
+// var data = [game1count, game2count, game3count];
+
+var x = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([0, 420]);
+
+d3.select(".chart")
+  .selectAll("div")
+    .data(data)
+  .enter().append("div")
+    .style("width", function(d) { return x(d) + "px"; })
+    .text(function(d) { return d; });
+</script>
+   </div>
+
+
+</body>

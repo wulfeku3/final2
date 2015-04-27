@@ -6,6 +6,7 @@ class FnafsController < ApplicationController
   # GET /fnafs.json
   def index
     @fnafs = Fnaf.all.paginate(page: params[:page], per_page: 5)
+    @fnafs = Fnaf.search (params[:search])
     # if params[:search]
       # @fnafs = Fnaf.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
     # else
