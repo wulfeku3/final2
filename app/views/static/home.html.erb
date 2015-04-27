@@ -29,45 +29,54 @@
 </center>
   <hr>
 
-  <!-- <p id="para1"></p> -->
-  <!-- <button onclick="myAlertFunction">Click here for a random quote!</button> -->
+  <p>Here's a nifty little graph that tells how many characters are in the first, second, and third games, respectively.</p>
 
-<!-- // <script type="text/coffeescript">
-    msg = ["Hello", "World"]
-      for i in [0...msg.length]
-         alert msg[i]
-   </script> -->
+  <div class="chart">
+    <script src="http://d3js.org/d3.v3.min.js"  charset="utf-8"></script>
 
-   <div class="chart">
-     <script src="http://d3js.org/d3.v3.min.js"  charset="utf-8">
-     </script>
-     <script>
+<script>
 
-// var game1count = 5;
-// var game2count = 2;
-// var game3count = 1;
+var data; // a global
 
-// for (character array) 
-// { if fnaf.first_game == true {game1count += 1};
-  // if character.game2 is true then game2count += 1;
-  // if character.game3 is true then game3count += 1 }
-// }
+d3.json("fnafs.json", function(error, json) {
+  console.log(json);
+  if (error) return console.warn(error);
+  data = json;
 
-var data = [4, 8, 15, 16, 23, 42];
-// var data = [game1count, game2count, game3count];
+  var firstGame = data.filter(function(character)
+  {
+    return character.first_game;
+  }).length;
+  console.log(firstGame);
+
+  var secondGame = data.filter(function(character)
+  {
+    return character.second_game;
+  }).length;
+  console.log(secondGame);
+
+  var thirdGame = data.filter(function(character)
+  {
+    return character.third_game;
+  }).length;
+  console.log(thirdGame);
+
+var gameCounts = [firstGame, secondGame, thirdGame];
 
 var x = d3.scale.linear()
-    .domain([0, d3.max(data)])
+    .domain([0, d3.max(gameCounts)])
     .range([0, 420]);
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 d3.select(".chart")
   .selectAll("div")
-    .data(data)
+    .data(gameCounts)
   .enter().append("div")
-    .style("width", function(d) { return x(d) + "px"; })
-    .text(function(d) { return d; });
+    .style("width", function(d) { return d * 10 + "px"; })
+    .text(function(d) { return d; });});
 </script>
-   </div>
 
+  </div>
 
 </body>
