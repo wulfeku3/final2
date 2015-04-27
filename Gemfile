@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 
 # Use sqlite3 as the database for Active Record
-group :development, do
+group :development, :test do
   gem 'sqlite3'
 
   gem 'byebug'
@@ -14,7 +14,7 @@ group :development, do
   gem 'web-console', '~> 2.0'
 end
 
-group :test, :production do
+group :production do
   gem 'pg'
   gem 'rails_12factor'
 end

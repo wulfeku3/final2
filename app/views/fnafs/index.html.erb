@@ -53,6 +53,8 @@
 
   <%= will_paginate @fnafs %>
 
+  Search for a character by name:
+
     <%= form_tag fnafs_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
