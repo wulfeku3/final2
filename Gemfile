@@ -60,6 +60,8 @@ gem 'simple_form', '~> 3.1.0'
 
 gem 'will_paginate', '~> 3.0.6'
 
+gem 'capistrano', '~> 3.4.0'
+
 # gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 
 # Use unicorn as the app server
